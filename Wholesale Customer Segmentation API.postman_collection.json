@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "wholesale-customer-segmentation",
+		"name": "Wholesale Customer Segmentation API",
+		"description": "API for customer segmentation using k-Means clustering",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Segment Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"Fresh\": 12000,\n  \"Milk\": 2000,\n  \"Grocery\": 5000,\n  \"Frozen\": 1000,\n  \"Detergents_Paper\": 800,\n  \"Delicassen\": 400\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/segment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"segment"
+					]
+				},
+				"description": "Accept spending values and predict cluster + persona"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cluster Personas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/clusters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clusters"
+					]
+				},
+				"description": "Return cluster persona summaries"
+			},
+			"response": []
+		},
+		{
+			"name": "Get PCA Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/pca",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"pca"
+					]
+				},
+				"description": "Return PCA-transformed 2D scatter data for all customers"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Elbow Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/elbow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"elbow"
+					]
+				},
+				"description": "Return inertia values for elbow chart"
+			},
+			"response": []
+		}
+	]
+}
